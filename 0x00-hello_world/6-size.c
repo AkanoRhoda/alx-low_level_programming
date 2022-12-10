@@ -4,6 +4,7 @@
  * main - for the description
  * Return: 0
  */
+main(void)
 int main(void)
 {
 	printf("size of a char: %i byte(s)\n", sizeof(char));
