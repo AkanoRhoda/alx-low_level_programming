@@ -20,7 +20,8 @@ int main(void)
 		if ((a % 3) == 0)
 		{
 			sum3 = sum3 + a;
-		}else if ((a % 5) == 0)
+		}
+		else if ((a % 5) == 0)
 		{
 			sum5 = sum5 + a;
 		}
