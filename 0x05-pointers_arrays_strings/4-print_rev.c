@@ -1,16 +1,25 @@
-#include <stdio.h>
-
+#include "main.h"
 
 /**
- * print_rev - for rev
- * @s: character
+ *  print_rev - prints a string in reverse mode to the stdout
+ *   @s: params
+ *
  */
-
 void print_rev(char *s)
 {
-	if (*s != '\0')
+	int i, sum;
+
+	sum = 0;
+	for (i = 0; s[i] != '\0'; i++)
 	{
-		print_rev(s + 1);
-		printf("%c", *s);
+		sum++;
 	}
+	sum--;
+	while (sum >= 0)
+	{
+		_putchar(s[sum]);
+		sum--;
+	}
+	_putchar('\n');
+
 }
