@@ -1,57 +1,41 @@
 #include <stdio.h>
 #include <stdlib.h>
 /**
- * isInteger - checks if s is an integer
- * @s: string to check
- * Return: 0 or 1
+ * main - for main
+ * @argc: for argument
+ * @argv: for array
+ * Return: Always 0 (Success)
  */
 
-int isInteger(const char *s)
+int main(int argc, char *argv[])
 {
-int i = 0;
-while (s[i] != '\0')
-{
-	if (s[i] < '0' || s[i] > '9')
-		return (0);
-	i++;
-}
-return (1);
-}
+	int position, total, change, aux;
+	int coins[] = {25, 10, 5, 2, 1};
 
-/**
- * main - adds positive numbers
- * @argc: int
- * @argv: list
- * Return: 0
- */
+	position = total = change = aux = 0;
 
-int main(int argc, char const *argv[])
-{
-int i = 0, coinUsed = 0, coin = 0;
-int coins[] = {25, 10, 5, 2, 1};
-
-if (argc != 2)
-{
-	printf("Error\n");
-	return (1);
-}
-if (isInteger(argv[1]))
-{
-	i = atoi(argv[1]);
-	while (i > 0 && coin <= 4)
+	if (argc != 2)
 	{
-		if (i >= coins[coin])
-		{
-			i -= coins[coin];
-			coinUsed++;
-		}
-		else
-		{
-			coin++;
+		printf("ERROR\n");
+		return (1);
 	}
-}
+	total = atoi(argv[1]);
 
-printf("%i\n", coinUsed);
-
-return (0);
+	if (total <= 0)
+	{
+		printf("0\n");
+		return (0);
+	}
+	while (coins[position] != '\0')
+	{
+		if (total >= coins[position])
+		{
+			aux = (total / coins[position]);
+			change += aux;
+			total -= coins[position] * aux;
+		}
+		position++;
+	}
+	printf("%d\n", change);
+	return (0);
 }
